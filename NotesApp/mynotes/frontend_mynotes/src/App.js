@@ -14,7 +14,7 @@ function App() {
             <Header />
             <Routes>
               <Route path="/" exact element={<NotesList />} />
-              <Route path="/note/:id" element={<SingleNote />} />
+              <Route path="/notes/:id" element={<SingleNote />} />
             </Routes>
           </div>
         </div>

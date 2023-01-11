@@ -13,15 +13,17 @@ const SingleNote = () => {
     const navigate = useNavigate()
     useEffect(() => {
         const getNote = async () => {
+
             if (id === 'new') {
                 return
             }
-            await axios.get(`/api/notes/${id}/`).then((response) => {
+            await axios.get(`/api/notes/${id}`).then((response) => {
                 setNote(response.data);
             })
         }
         getNote();
     }, [])
+
 
     const updateNote = async () => {
         fetch(`/api/notes/${id}/update/`, {
@@ -69,7 +71,7 @@ const SingleNote = () => {
     }
     return (
         <div>
-            <h1>Single Note {id}</h1>
+            {/* <h1>Single Note {id}</h1> */}
             <div className='note'>
                 <div className='note-header'>
                     <h3>

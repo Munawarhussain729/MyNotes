@@ -12,7 +12,8 @@ const NotesList = () => {
 
     useEffect(() => {
         const getNotes = async () => {
-            axios.get('/api/notes/')?.then((response) => {
+            await axios.get('/api/notes/')?.then((response) => {
+                
                 setNotes(response.data);
             })
         }
@@ -53,9 +54,9 @@ const NotesList = () => {
             <div className='notes-list'>
                 {notes.map((item, index) => {
                     return (
-                        <Link key={index} to={`/note/${item.id}`} className="note-link">
+                        <Link key={index} to={`/notes/${item.id}`} className="note-link">
                             <div className='notes-list-item'>
-                                <p>{getTitle(item)}</p>
+                                <p style={{color:"white"}}>{getTitle(item)}</p>
                                 <p><span>{getTime(item)}</span> {getContent(item)}</p>
                             </div>
                         </Link>
